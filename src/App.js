@@ -5,6 +5,7 @@ import Users from "./components/users/Users";
 import Search from "./components/users/Search";
 import About from "./components/pages/About";
 import User from "./components/users/User";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 import "./App.css";
 
@@ -44,6 +45,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <Helmet>
+            <title>Github Finder | Home</title>
+          </Helmet>
           <Navbar />
           <div className="container">
             <Switch>
