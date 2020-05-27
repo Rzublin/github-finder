@@ -16,6 +16,7 @@
 
 ## Description
 
+<img src="/public/github-finder.png">
 Search github users and their stats
 
 ## Live Demo
