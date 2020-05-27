@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect, Fragment } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
 import Search from "./components/users/Search";
@@ -43,7 +43,7 @@ class App extends Component {
   render() {
     const { users, loading, user } = this.state;
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
           <Helmet>
             <title>Github Finder | Home</title>
