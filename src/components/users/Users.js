@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const Users = ({ users, loading }) => {
   return (
-    <div style={userStyle}>
+    <div className="grid-3">
       {users && users.map((user) => <UserItem user={user} key={user.id} />)}
     </div>
   );
@@ -13,12 +13,6 @@ const Users = ({ users, loading }) => {
 Users.propTypes = {
   users: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
-};
-
-const userStyle = {
-  display: "grid",
-  gridTemplateColumns: "repeat(3,1fr)",
-  gridGap: "1rem",
 };
 
 export default Users;
