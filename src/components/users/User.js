@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet";
 const User = ({ user, getUser, ...props }) => {
   useEffect(() => {
     getUser(props.match.params.login);
-    console.log("user");
   }, [getUser, props.match.params.login]);
 
   const {
