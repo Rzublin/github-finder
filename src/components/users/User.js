@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-const User = ({ user, getUser, ...props }) => {
+const User = ({ user, getUser, match }) => {
   useEffect(() => {
-    getUser(props.match.params.login);
-  }, [getUser, props.match.params.login]);
+    getUser(match.params.login);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const {
     name,
