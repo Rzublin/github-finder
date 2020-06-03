@@ -4,6 +4,7 @@ import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
 import Search from "./components/users/Search";
 import About from "./components/pages/About";
+import ErrorPage from "./components/pages/ErrorPage";
 import User from "./components/users/User";
 import { Helmet } from "react-helmet";
 import axios from "axios";
@@ -83,6 +84,7 @@ const App = () => {
                 />
               )}
             />
+            <Route component={ErrorPage} />
           </Switch>
         </div>
       </div>
