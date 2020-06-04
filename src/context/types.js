@@ -1,4 +1,3 @@
-export const getUsers = "GET_USERS";
-export const getUser = "GET_USER";
-export const clearUsers = "CLEAR_USERS";
-export const searchUsers = "SEARCH_USERS";
+export const SEARCH_USERS = "SEARCH_USERS";
+export const GET_USER = "GET_USER";
+export const CLEAR_USERS = "CLEAR_USERS";
