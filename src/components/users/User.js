@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import GithubContext from "../../context/github/githubContext";
 
-const User = ({ user, getUser, match }) => {
+const User = ({ match }) => {
+  const { getUser, user } = useContext(GithubContext);
+
   useEffect(() => {
     getUser(match.params.login);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,11 +68,6 @@ const User = ({ user, getUser, match }) => {
       </Link>
     </div>
   );
-};
-
-User.propTypes = {
-  user: PropTypes.object.isRequired,
-  getUser: PropTypes.func.isRequired,
 };
 
 export default User;
