@@ -3,8 +3,8 @@ import UserItem from "./UserItem";
 import GithubContext from "../../context/github/githubContext";
 
 const Users = () => {
-  const githubContext = useContext(GithubContext);
-  const { users } = githubContext;
+  const { users } = useContext(GithubContext);
+
   return (
     <div className="grid-3">
       {users.length > 0 &&
