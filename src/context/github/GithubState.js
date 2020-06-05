@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import axios from "axios";
 import GithubContext from "./githubContext";
 import GithubReducer from "./githubReducer";
@@ -37,12 +37,36 @@ const GithubState = (props) => {
     });
   };
 
+  const clearUsers = () => {
+    dispatch({
+      type: githubTypes.CLEAR_USERS,
+      payload: [],
+    });
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(
+        `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+      );
+      dispatch({
+        type: githubTypes.SEARCH_USERS,
+        payload: res.data,
+      });
+    };
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <GithubContext.Provider
       value={{
         users: state.users,
         user: state.user,
         loading: state.loading,
+        searchUsers,
+        getUser,
+        clearUsers,
       }}
     >
       {props.children}
